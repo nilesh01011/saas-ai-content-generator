@@ -41,7 +41,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
                         {item?.field === "input" ?
                             <Input name={item?.name} required={item?.required} onChange={handleInputChange} /> :
                             item?.field === "textarea" ?
-                                <Textarea className='resize-none' name={item?.name} required={item?.required} onChange={handleInputChange} /> : null
+                                <Textarea className='resize-none min-h-[200px]' name={item?.name} required={item?.required} onChange={handleInputChange} /> : null
                         }
                     </div>
                 ))}

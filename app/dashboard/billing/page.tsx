@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button';
 import { Check, Loader2Icon } from 'lucide-react'
 import axios from 'axios';
-import Razorpay from 'razorpay'
 import { db } from '@/utils/db';
 import { UserSubscription } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
@@ -101,7 +100,8 @@ function BillingPage() {
     });
 
     if (result) window.location.reload();
-  }
+  };
+
   return (
     <div>
       <div className='mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12'>
@@ -128,7 +128,10 @@ function BillingPage() {
                 ))}
               </div>
 
-              <Button className={`${userSubscription ? "bg-transparent hover:bg-transparent outline outline-2 text-primary" : "bg-gray-500"} rounded-full mt-5 w-full`}>{userSubscription ? "Get this plan" : "Currently Active Plan"}</Button>
+              <Button
+                className={`${userSubscription ? "bg-transparent hover:bg-transparent outline outline-2 text-primary" : "bg-gray-500"} rounded-full mt-5 w-full`}>
+                {userSubscription ? "Get this plan" : "Currently Active Plan"}
+              </Button>
             </div>
           </div>
           {/* paid plan */}
@@ -152,7 +155,7 @@ function BillingPage() {
                 ))}
               </div>
 
-              <Button onClick={() => CreateSubscription()} disabled={loading} className={`rounded-full mt-5 flex items-center gap-2 ${userSubscription ? "bg-gray-500" : "bg-transparent hover:bg-transparent outline outline-2 text-primary"} w-full`}>
+              <Button onClick={() => CreateSubscription()} disabled={loading || userSubscription} className={`rounded-full mt-5 flex items-center gap-2 ${userSubscription ? "bg-gray-500" : "bg-transparent hover:bg-transparent outline outline-2 text-primary"} w-full`}>
                 {loading && <Loader2Icon className='animate-spin' />}
                 {
                   userSubscription ? "Currently Active Plan" : "Get this plan"

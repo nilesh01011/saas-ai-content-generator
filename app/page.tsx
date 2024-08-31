@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Dashboard from "./dashboard/page";
+import HomePage from "./home/page";
 
 export default function Home() {
   return (
-    <Dashboard />
+    <HomePage />
   );
 }
