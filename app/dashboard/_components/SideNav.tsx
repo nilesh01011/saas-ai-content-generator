@@ -6,30 +6,31 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import UsageTrack from './UsageTrack'
 
+export const MenuList = [
+  {
+    name: "Home",
+    icon: Home,
+    path: '/dashboard',
+  },
+  {
+    name: "History",
+    icon: FileClock,
+    path: '/dashboard/history',
+  },
+  {
+    name: "Billing",
+    icon: WalletCards,
+    path: '/dashboard/billing',
+  },
+  {
+    name: "Setting",
+    icon: Settings,
+    path: '/dashboard/setting',
+  },
+];
+
 function SideNav() {
   const path = usePathname()
-  const MenuList = [
-    {
-      name: "Home",
-      icon: Home,
-      path: '/dashboard',
-    },
-    {
-      name: "History",
-      icon: FileClock,
-      path: '/dashboard/history',
-    },
-    {
-      name: "Billing",
-      icon: WalletCards,
-      path: '/dashboard/billing',
-    },
-    {
-      name: "Setting",
-      icon: Settings,
-      path: '/dashboard/setting',
-    },
-  ]
   return (
     <div className='h-screen relative p-5 shadow-sm border bg-white'>
       <div className='flex justify-center'>
